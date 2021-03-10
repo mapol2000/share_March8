@@ -123,7 +123,8 @@ class Home : Fragment() {
         // + 쉐어 추천 공간 더보기 버튼 초기화
         morePlaceBtn = view.findViewById(R.id.morePlaceBtn)
 
-        // 눌렀을시 프래그먼트 이동
+        // 눌렀을시 프래그먼트
+        // 이동
         morePlaceBtn.setOnClickListener {
             communicator.moveFragtoFrag()
         }

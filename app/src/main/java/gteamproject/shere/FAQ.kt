@@ -10,7 +10,8 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 //import kotlinx.android.synthetic.main.activity_main.*
 
-class FAQ : AppCompatActivity() {
+class
+FAQ : AppCompatActivity() {
 
     var viewList = ArrayList<View>()
     lateinit var viewPager: ViewPager
