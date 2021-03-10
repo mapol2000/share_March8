@@ -22,7 +22,6 @@ class Magazine: Fragment() {
 
     lateinit var recyclerView: RecyclerView
 
-
     companion object{
         const val TAG : String = "로그"
 
@@ -71,10 +70,23 @@ class Magazine: Fragment() {
         publisherList.add(publisher)
     }
 
+    /**
+     * 매거진 페이지에 들어갈 내용들 설정
+     * 현재 기능으로는 관리자만 작성할 수 있도록 하여 하드 코딩
+     * 매거진 작성 권한은 앞으로도 관리자만 가능하도록 할 것이며
+     * 게시물이 많아질 경우 리팩터링 필요!!
+     */
     private fun postToList() {
-        for (i in 1..5) {
 
-            addToList(R.drawable.dubai, "제목 $i", "내용 $i", "작성자 $i")
+        // 각 배열에 포스트 순서대로 넣어줘야 함
+        var titles = arrayOf("첫번째", "두번째", "세번째", "네번째", "다섯번째")
+        var contents = arrayOf("", "", "", "", "")
+        var publishers = arrayOf("쉐어 편집장")
+        var images = arrayOf(R.drawable.paris, R.drawable.moscow, R.drawable.dubai, R.drawable.uk, R.drawable.paris)
+
+        for (i in 0..4) {
+
+            addToList(images[i], "${titles[i]}", "${contents[i]}", "${publishers[0]}")
         }
 
     }

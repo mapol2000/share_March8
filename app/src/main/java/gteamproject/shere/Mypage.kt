@@ -16,6 +16,11 @@ class Mypage : Fragment() {
     lateinit var yourPlace: TextView
     lateinit var myPlace: TextView
 
+    lateinit var faq: Button
+    lateinit var credential: Button
+    lateinit var versionInfo: Button
+    lateinit var logoutBtn: Button
+
     companion object{
         const val TAG : String = "로그"
 
@@ -48,9 +53,17 @@ class Mypage : Fragment() {
 
         val view = inflater.inflate(R.layout.mypage, container, false)
 
+        // 예약내역
         yourPlace = view.findViewById(R.id.yourPlace)
         myPlace = view.findViewById(R.id.myPlace)
 
+        // 아래 버튼들
+        faq = view.findViewById(R.id.faq)
+        credential = view.findViewById(R.id.credential)
+        versionInfo = view.findViewById(R.id.versionInfo)
+        logoutBtn = view.findViewById(R.id.logoutBtn)
+
+        // 예약내역 액션
         yourPlace.setOnClickListener {
             val intent = Intent(context, Mypage_Detail::class.java)
             startActivity(intent)
@@ -58,6 +71,12 @@ class Mypage : Fragment() {
 
         myPlace.setOnClickListener {
             val intent = Intent(context, Mypage_Detail::class.java)
+            startActivity(intent)
+        }
+
+        // 아래 버튼들 액션
+        faq.setOnClickListener {
+            val intent = Intent(context, FAQ::class.java)
             startActivity(intent)
         }
 

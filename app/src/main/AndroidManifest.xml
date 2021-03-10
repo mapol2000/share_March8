@@ -17,6 +17,7 @@
         <activity android:name=".Mypage_Detail"></activity>
         <activity android:name=".Magazine_Detail" />
         <activity android:name=".Ex_Gallery" />
+        <activity android:name=".FAQ" />
         <activity android:name=".DownActivity" />
         <activity android:name=".Main" />
         <activity android:name=".LoginRegister">
