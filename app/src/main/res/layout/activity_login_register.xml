@@ -19,12 +19,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#FFFFFF"
-            android:fontFamily="@font/bmjua"
+            android:fontFamily="sans-serif"
             android:text="Sign In"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#232222"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textRegister"
@@ -32,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#FFFFFF"
-            android:fontFamily="@font/bmjua"
+            android:fontFamily="sans-serif"
             android:text="Register"
             android:textAlignment="center"
             android:textAllCaps="false"

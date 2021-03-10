@@ -1,6 +1,7 @@
 package gteamproject.shere
 
 import android.content.Intent
+import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -25,10 +26,15 @@ class LoginRegister : AppCompatActivity() {
 
         textSign.setOnClickListener {
             setFrag(0)
+            textSign.setTypeface(null, Typeface.BOLD)
+            textRegister.setTypeface(null, Typeface.NORMAL)
         }
 
         textRegister.setOnClickListener {
             setFrag(1)
+            textRegister.setTypeface(null, Typeface.BOLD)
+            textSign.setTypeface(null, Typeface.NORMAL)
+
         }
 
 

@@ -12,7 +12,7 @@
         android:layout_marginTop="4dp"
         android:autoLink="web"
         android:fontFamily="@font/bmjua"
-        android:text="https://goo.gl/maps/kT8RoqGbtNmJxWdSA"
+        android:text="https://goo.gl/maps/pZUprG3ChU64jMAz8"
         android:textColorLink="#B36951"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"

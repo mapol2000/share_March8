@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Shere">
-        <activity android:name=".Mypage_Detail"></activity>
+        <activity android:name=".Policy"></activity>
+        <activity android:name=".Mypage_Detail" />
         <activity android:name=".Magazine_Detail" />
         <activity android:name=".Ex_Gallery" />
         <activity android:name=".FAQ" />

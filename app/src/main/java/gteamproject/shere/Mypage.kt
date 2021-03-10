@@ -17,7 +17,7 @@ class Mypage : Fragment() {
     lateinit var myPlace: TextView
 
     lateinit var faq: Button
-    lateinit var credential: Button
+    lateinit var policy: Button
     lateinit var versionInfo: Button
     lateinit var logoutBtn: Button
 
@@ -59,7 +59,7 @@ class Mypage : Fragment() {
 
         // 아래 버튼들
         faq = view.findViewById(R.id.faq)
-        credential = view.findViewById(R.id.credential)
+        policy = view.findViewById(R.id.policy)
         versionInfo = view.findViewById(R.id.versionInfo)
         logoutBtn = view.findViewById(R.id.logoutBtn)
 
@@ -77,6 +77,11 @@ class Mypage : Fragment() {
         // 아래 버튼들 액션
         faq.setOnClickListener {
             val intent = Intent(context, FAQ::class.java)
+            startActivity(intent)
+        }
+
+        policy.setOnClickListener {
+            val intent = Intent(context, Policy::class.java)
             startActivity(intent)
         }
 

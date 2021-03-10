@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +20,7 @@ class Magazine: Fragment() {
     private var publisherList = mutableListOf<String>()
 
     lateinit var recyclerView: RecyclerView
+
 
     companion object{
         const val TAG : String = "로그"
@@ -74,19 +74,18 @@ class Magazine: Fragment() {
      * 매거진 페이지에 들어갈 내용들 설정
      * 현재 기능으로는 관리자만 작성할 수 있도록 하여 하드 코딩
      * 매거진 작성 권한은 앞으로도 관리자만 가능하도록 할 것이며
-     * 게시물이 많아질 경우 리팩터링 필요!!
+     * 게시물이 많아질 경우 클래스로 리팩터링 필요!!
      */
     private fun postToList() {
 
         // 각 배열에 포스트 순서대로 넣어줘야 함
-        var titles = arrayOf("첫번째", "두번째", "세번째", "네번째", "다섯번째")
-        var contents = arrayOf("", "", "", "", "")
-        var publishers = arrayOf("쉐어 편집장")
-        var images = arrayOf(R.drawable.paris, R.drawable.moscow, R.drawable.dubai, R.drawable.uk, R.drawable.paris)
+        var titles = arrayOf("쉐어에 오신것을 환영합니다", "어플리케이션 이용 방법입니다", "장소 등록 방법입니다", "개발자를 모십니다", "다섯번째")
+        var contents = arrayOf("쉐어는 블라블라에 만들어졌고 블라블라가 개발했습니다", "여기까지 보신다면 회원가입은 성공하셨고 각 메뉴는 블라블라", "장소등록은 장소등록 탭에서 블라블", "초보자 환영!", "")
+        var publishers = "쉐어 편집장"
+        var images = arrayOf(R.drawable.magazine_welcome, R.drawable.magazine_howto, R.drawable.magazine_register, R.drawable.magazine_hire, R.drawable.paris)
 
         for (i in 0..4) {
-
-            addToList(images[i], "${titles[i]}", "${contents[i]}", "${publishers[0]}")
+            addToList(images[i], titles[i], contents[i], publishers)
         }
 
     }

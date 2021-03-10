@@ -68,7 +68,7 @@
 
 
                     <com.synnapps.carouselview.CarouselView
-                        android:id="@+id/carouselView1"
+                        android:id="@+id/mainSlide"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
                         android:layout_margin="10dp"
@@ -82,22 +82,85 @@
                         app:strokeColor="#FF777777"
                         app:strokeWidth="1dp"></com.synnapps.carouselview.CarouselView>
 
-                    <TextView
-                        android:id="@+id/insideText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginRight="20dp"
-                        android:fontFamily="@font/bmjua"
-                        android:text="작업실쉐어 찾기"
-                        android:textAlignment="textStart"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="@id/carouselView1"
-                        app:layout_constraintTop_toTopOf="@id/carouselView1" />
-
                     <!-- 두번째 -->
+                    <LinearLayout
+                        android:id="@+id/slideGroup1"
+                        android:layout_width="match_parent"
+                        android:layout_height="280dp"
+                        android:layout_margin="20dp"
+                        android:background="@drawable/border"
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toBottomOf="@id/mainSlide"
+                        tools:layout_editor_absoluteX="20dp">
+
+                        <com.synnapps.carouselview.CarouselView
+                            android:id="@+id/carouselView1"
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            app:fillColor="#78c4d4"
+                            app:pageColor="#00000000"
+                            app:radius="4dp"
+                            app:autoPlay="false"
+                            app:strokeColor="#FF777777"
+                            app:strokeWidth="1dp">
+
+                        </com.synnapps.carouselview.CarouselView>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+
+                                android:id="@+id/imageButton1"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="#FFFFFF"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/check" />
+
+                            <TextView
+                                android:id="@+id/locationText1"
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:fontFamily="@font/bmjua"
+                                android:padding="5dp"
+                                android:text="서울특별시" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/border"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/depositText1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/bmjua"
+                                android:text="보증금 100만원"
+                                android:textAlignment="center" />
+
+                            <TextView
+                                android:id="@+id/rentText1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/bmjua"
+                                android:text="임대료 580000원"
+                                android:textAlignment="center" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- 세번째 -->
                     <LinearLayout
                         android:id="@+id/slideGroup2"
                         android:layout_width="match_parent"
@@ -105,7 +168,7 @@
                         android:layout_margin="20dp"
                         android:background="@drawable/border"
                         android:orientation="vertical"
-                        app:layout_constraintTop_toBottomOf="@id/carouselView1"
+                        app:layout_constraintTop_toBottomOf="@id/slideGroup1"
                         tools:layout_editor_absoluteX="20dp">
 
                         <com.synnapps.carouselview.CarouselView
@@ -175,7 +238,7 @@
 
                     </LinearLayout>
 
-                    <!-- 세번째 -->
+                    <!-- 네번째 -->
                     <LinearLayout
                         android:id="@+id/slideGroup3"
                         android:layout_width="match_parent"
@@ -253,29 +316,62 @@
 
                     </LinearLayout>
 
-                    <!-- 네번째 -->
+                    // 쉐어 추천 공간 더보기 버튼
+                    <LinearLayout
+                        android:id="@+id/morePlaceBtnLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toBottomOf="@id/slideGroup3"
+                        app:layout_constraintBottom_toTopOf="@id/slideGroup4"
+                        android:layout_margin="20dp"
+                        android:gravity="center"
+                        >
+
+                        <Button
+                            android:id="@+id/morePlaceBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="#78c4d4"
+                            android:fontFamily="@font/bmjua"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:text="+ 쉐어 추천 공간 더보기" />
+                    </LinearLayout>
+
+
+
+                    <!-- 다섯번째 (신규 장소) -->
                     <LinearLayout
                         android:id="@+id/slideGroup4"
                         android:layout_width="match_parent"
                         android:layout_height="280dp"
                         android:layout_margin="20dp"
-                        android:background="@drawable/border"
                         android:orientation="vertical"
-                        app:layout_constraintTop_toBottomOf="@id/slideGroup3"
+                        android:background="@drawable/border"
+                        app:layout_constraintTop_toBottomOf="@id/morePlaceBtnLinearLayout"
                         tools:layout_editor_absoluteX="20dp">
 
-                        <com.synnapps.carouselview.CarouselView
-                            android:id="@+id/carouselView4"
-                            android:layout_width="match_parent"
-                            android:layout_height="180dp"
-                            app:fillColor="#78c4d4"
-                            app:pageColor="#00000000"
-                            app:radius="4dp"
-                            app:autoPlay="false"
-                            app:strokeColor="#FF777777"
-                            app:strokeWidth="1dp">
 
-                        </com.synnapps.carouselview.CarouselView>
+                            <com.synnapps.carouselview.CarouselView
+                                android:id="@+id/carouselView4"
+                                android:layout_width="match_parent"
+                                android:layout_height="180dp"
+                                app:fillColor="#78c4d4"
+                                app:pageColor="#00000000"
+                                app:radius="4dp"
+                                app:autoPlay="false"
+                                app:strokeColor="#FF777777"
+                                app:strokeWidth="1dp">
+
+                                <ImageView
+                                    android:id="@+id/newLabel"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_gravity="right|top"
+                                    android:src="@drawable/new_label" />
+                            </com.synnapps.carouselview.CarouselView>
+
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -331,124 +427,13 @@
 
                     </LinearLayout>
 
-                    // 쉐어 추천 공간 더보기 버튼
-                    <LinearLayout
-                        android:id="@+id/morePlaceBtnLinearLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        app:layout_constraintTop_toBottomOf="@id/slideGroup4"
-                        app:layout_constraintBottom_toTopOf="@id/slideGroup5"
-                        android:layout_margin="20dp"
-                        android:gravity="center"
-                        >
-
-                        <Button
-                            android:id="@+id/morePlaceBtn"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="#78c4d4"
-                            android:fontFamily="@font/bmjua"
-                            android:paddingLeft="20dp"
-                            android:paddingRight="20dp"
-                            android:text="+ 쉐어 추천 공간 더보기" />
-                    </LinearLayout>
-
-
-
-                    <!-- 다섯번째 (신규 장소) -->
-                    <LinearLayout
-                        android:id="@+id/slideGroup5"
-                        android:layout_width="match_parent"
-                        android:layout_height="280dp"
-                        android:layout_margin="20dp"
-                        android:orientation="vertical"
-                        android:background="@drawable/border"
-                        app:layout_constraintTop_toBottomOf="@id/morePlaceBtnLinearLayout"
-                        tools:layout_editor_absoluteX="20dp">
-
-
-                            <com.synnapps.carouselview.CarouselView
-                                android:id="@+id/carouselView5"
-                                android:layout_width="match_parent"
-                                android:layout_height="180dp"
-                                app:fillColor="#78c4d4"
-                                app:pageColor="#00000000"
-                                app:radius="4dp"
-                                app:autoPlay="false"
-                                app:strokeColor="#FF777777"
-                                app:strokeWidth="1dp">
-
-                                <ImageView
-                                    android:id="@+id/newLabel"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_gravity="right|top"
-                                    android:src="@drawable/new_label" />
-                            </com.synnapps.carouselview.CarouselView>
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="60dp"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-
-                            <ImageButton
-
-                                android:id="@+id/imageButton5"
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
-                                android:layout_marginLeft="10dp"
-                                android:background="#FFFFFF"
-                                android:scaleType="centerInside"
-                                android:src="@drawable/check" />
-
-                            <TextView
-                                android:id="@+id/locationText5"
-                                android:layout_width="match_parent"
-                                android:layout_height="30dp"
-                                android:fontFamily="@font/bmjua"
-                                android:padding="5dp"
-                                android:text="서울특별시" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/border"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/depositText5"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/bmjua"
-                                android:text="보증금 100만원"
-                                android:textAlignment="center" />
-
-                            <TextView
-                                android:id="@+id/rentText5"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/bmjua"
-                                android:text="임대료 580000원"
-                                android:textAlignment="center" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-
                     // 신규 장소 더보기
                     <LinearLayout
                         android:id="@+id/moreNewPlaceBtnLinearLayout"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
-                        app:layout_constraintTop_toBottomOf="@id/slideGroup5"
+                        app:layout_constraintTop_toBottomOf="@id/slideGroup4"
                         android:layout_margin="20dp"
                         android:gravity="center"
                         >
@@ -602,7 +587,7 @@
                             android:maxLines="2"
                             android:text="쉐어 이메일로 (info@shareurplace.com)장소사진 / 간단한 내용 / 쉐어 아이디를 보내주세요!"
                             android:textAlignment="center"
-                            android:textColor="#7868e6"
+                            android:textColor="#78c4d4"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 

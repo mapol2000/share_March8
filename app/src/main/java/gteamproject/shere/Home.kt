@@ -2,14 +2,15 @@ package gteamproject.shere
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.synnapps.carouselview.CarouselView
 import com.synnapps.carouselview.ImageClickListener
@@ -31,20 +32,28 @@ class Home : Fragment() {
             R.drawable.uk
     )
 
-    // 메인 화면에 들어갈 슬라이드 갯수
-    var carouselView = arrayOfNulls<CarouselView>(5)
-    // 슬라이드 갯수에 따른 ID
-    var carouselViewId = arrayOf(R.id.carouselView1, R.id.carouselView2, R.id.carouselView3, R.id.carouselView4, R.id.carouselView5)
+    var mainSlideImages = listOf(R.drawable.main_slide1, R.drawable.main_slide2, R.drawable.main_slide3, R.drawable.main_slide4, R.drawable.main_slide5)
 
-    // 메인 화면 첫 슬라이드 사진 안에 들어갈 문구
-    lateinit var insideText: TextView
-    // 문구에 들어갈 리스트
-    var labelsForSlides = arrayOf("paris", "moscow", "dubai", "uk")
+    //메인 화면 맨 위 소개 슬라이드
+    lateinit var mainSlide: CarouselView
+
+    // 메인 화면에 들어갈 슬라이드 갯수 (맨위 mainSlide 제외)
+    var carouselView = arrayOfNulls<CarouselView>(4)
+    // 슬라이드 갯수에 따른 ID
+    var carouselViewId = arrayOf(R.id.carouselView1, R.id.carouselView2, R.id.carouselView3, R.id.carouselView4)
+
+    // 각각 매물의 이미지버튼
+    var imageButton = arrayOfNulls<ImageButton>(4)
+    var imageButtonID = arrayOf(R.id.imageButton1, R.id.imageButton2, R.id.imageButton3, R.id.imageButton4)
+
+    // 이미지 버튼에 들어갈 장소 구글맵 url
+    var mapAddress = arrayOf("https://goo.gl/maps/7nVxP1SCZXg4zMgD8", "https://goo.gl/maps/dmtdw9gwLiuExEPz5", "https://goo.gl/maps/tDzsGow3txJ8jcbF8", "https://goo.gl/maps/yeXs6VPznyEBgfJq6")
 
     // 아래 프로모션 슬라이드
     lateinit var promotionSlide: CarouselView
+
     // 프로모션 슬라이드에 들어갈 배너
-    var promotionBanner = listOf(R.drawable.promotion1, R.drawable.promotion2)
+    var promotionBanner = listOf(R.drawable.magazine_welcome, R.drawable.magazine_howto, R.drawable.magazine_register, R.drawable.magazine_hire)
 
     companion object{
         const val TAG : String = "로그"
@@ -79,8 +88,15 @@ class Home : Fragment() {
         // 위에 선언해둔 Communicator 초기화
         communicator = activity as Communicator
 
+        mainSlide = view.findViewById(R.id.mainSlide)
+        mainSlide.pageCount = mainSlideImages.size
+        mainSlide.setImageListener { position, imageView ->
+            imageView.setImageResource(mainSlideImages[position])
+        }
+
         // for-in 문으로 한번에 ID 등록하여 사용할 수 있게 해줌
         for (i in carouselView.indices) {
+
             // 슬라이드 활성화
             carouselView[i] = view.findViewById(carouselViewId[i])
 
@@ -94,6 +110,14 @@ class Home : Fragment() {
             carouselView[i]?.setImageClickListener(ImageClickListener {
                 communicator.moveFragtoFrag()
             })
+
+            imageButton[i] = view.findViewById(imageButtonID[i])
+            imageButton[i]?.setOnClickListener {
+                val intent: Intent = Intent(Intent.ACTION_VIEW, Uri.parse(mapAddress[i]))
+                startActivity(intent)
+            }
+
+
         }
 
         // + 쉐어 추천 공간 더보기 버튼 초기화
@@ -104,8 +128,6 @@ class Home : Fragment() {
             communicator.moveFragtoFrag()
         }
 
-
-        insideText = view.findViewById(R.id.insideText)
 
         promotionSlide = view.findViewById(R.id.promotionSlide)
         promotionSlide.pageCount = promotionBanner.size
